@@ -1,0 +1,32 @@
+
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-color: #E5E3E4;
+}
+/* 
+ul {
+    list-style: none;
+}
+ul li {
+    background: url(https://www.computerhope.com/issues/pictures/bullet.gif) no-repeat top left;
+    background-position: 0 5px;
+    line-height: 1.5625;
+    padding: 0 0 4px 30px;
+    margin-left: 1em;
+} */
+
+p {
+    line-height: 5px;
+}
+
+.section-title {
+    margin-bottom: 0px;
+    color: black;
+}
+
+.page {
+    margin-left: 30px;
+    margin-right: 30px;
+}
