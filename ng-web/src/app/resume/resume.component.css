@@ -1,0 +1,19 @@
+.exp-title {
+    font-weight: bold;
+    text-align: left;
+}
+
+.exp-year {
+    font-weight: normal;
+    font-style: italic;
+    float: right;
+}
+
+.company {
+    font-style: italic;
+}
+
+#photo {
+    float: right;    
+    margin: 0 0 0 15px;
+}
