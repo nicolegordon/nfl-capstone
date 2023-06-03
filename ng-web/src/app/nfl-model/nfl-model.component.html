@@ -1,3 +1,89 @@
 <div class="page">
-    <p>nfl-model works!</p>
+  <div class="flex-container">
+    <div id="away-team-label">
+      <label>Away Team</label>
+    </div>
+    <div id="home-team-label">
+      <label>Home Team</label>
+    </div>
+  </div>
+  <div class="flex-container">
+    <div id="away-team-select">
+      <mat-form-field>
+        <mat-select [formControl]="awayTeamForm" [(value)]="selectedAwayTeam">
+          <mat-option *ngFor="let team of nflTeams" [value]="team">{{
+            team
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div id="home-team-select">
+      <mat-form-field>
+        <mat-select [formControl]="homeTeamForm" [(value)]="selectedHomeTeam">
+          <mat-option *ngFor="let team of nflTeams" [value]="team">{{
+            team
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="model-input">
+    <p>{{ selectedAwayTeam }} Score</p>
+    <mat-form-field>
+      <input
+        matInput
+        [formControl]="awayScoreForm"
+        value="currentAwayScore"
+        required
+      />
+      <mat-error *ngIf="awayScoreForm.invalid">{{
+        getScoreError(awayScoreForm)
+      }}</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="model-input">
+    <p>{{ selectedHomeTeam }} Score</p>
+    <mat-form-field>
+      <input
+        matInput
+        [formControl]="homeScoreForm"
+        value="currentHomeScore"
+        required
+      />
+      <mat-error *ngIf="homeScoreForm.invalid">{{
+        getScoreError(homeScoreForm)
+      }}</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="model-input">
+    <p>Possession Team</p>
+    <mat-form-field>
+      <mat-select
+        [formControl]="possessionTeamForm"
+        [(value)]="currentPossessionTeam"
+        required
+      >
+        <mat-option *ngFor="let team of playingTeams" [value]="team">{{
+          team
+        }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="possessionTeamForm.invalid">{{
+        getScoreError(possessionTeamForm)
+      }}</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="button-row">
+    <button
+      mat-raised-button
+      class="predict-button"
+      [disabled]="isDisabled"
+      (click)="onPredictClick()"
+    >
+      Predict Winner
+    </button>
+  </div>
 </div>

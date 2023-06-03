@@ -16,12 +16,12 @@ import { NflModelComponent } from './nfl-model/nfl-model.component';
     ResumeComponent,
     HomepageComponent,
     ProjectsComponent,
-    NflModelComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NavBarComponent,
+    NflModelComponent,
     BrowserAnimationsModule,
   ],
   providers: [],
