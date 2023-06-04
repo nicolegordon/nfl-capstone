@@ -81,7 +81,7 @@
       <button
         mat-raised-button
         class="predict-button"
-        [disabled]="isDisabled"
+        [disabled]="gameForm.invalid"
         (click)="onPredictClick()"
       >
         Predict Winner
