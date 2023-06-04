@@ -22,8 +22,17 @@
   color: #e5e3e4;
 }
 
+.input-row {
+  margin: auto;
+  width: 50%;
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+}
 .model-input {
   padding-bottom: 5px;
+  display: inline-block;
+  border: 1px solid green;
 }
 
 #away-team-label {

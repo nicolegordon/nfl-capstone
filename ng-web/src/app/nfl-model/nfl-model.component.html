@@ -29,52 +29,54 @@
       </div>
     </div>
 
-    <div class="model-input">
-      <p>{{ selectedAwayTeam }} Score</p>
-      <mat-form-field>
-        <input
-          matInput
-          formControlName="awayScore"
-          value="currentAwayScore"
-          required
-        />
-        <mat-error *ngIf="gameForm.get('awayScore')?.invalid">{{
-          getScoreError("awayScore")
-        }}</mat-error>
-      </mat-form-field>
-    </div>
+    <div class="input-row">
+      <div class="model-input">
+        <p>{{ selectedAwayTeam }} Score</p>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="awayScore"
+            value="currentAwayScore"
+            required
+          />
+          <mat-error *ngIf="gameForm.get('awayScore')?.invalid">{{
+            getScoreError("awayScore")
+          }}</mat-error>
+        </mat-form-field>
+      </div>
 
-    <div class="model-input">
-      <p>{{ selectedHomeTeam }} Score</p>
-      <mat-form-field>
-        <input
-          matInput
-          formControlName="homeScore"
-          value="currentHomeScore"
-          required
-        />
-        <mat-error *ngIf="gameForm.get('homeScore')?.invalid">{{
-          getScoreError("homeScore")
-        }}</mat-error>
-      </mat-form-field>
-    </div>
+      <div class="model-input">
+        <p>{{ selectedHomeTeam }} Score</p>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="homeScore"
+            value="currentHomeScore"
+            required
+          />
+          <mat-error *ngIf="gameForm.get('homeScore')?.invalid">{{
+            getScoreError("homeScore")
+          }}</mat-error>
+        </mat-form-field>
+      </div>
 
-    <div class="model-input">
-      <p>Possession Team</p>
-      <mat-form-field>
-        <mat-select
-          formControlName="possessionTeam"
-          [(value)]="currentPossessionTeam"
-          required
-        >
-          <mat-option *ngFor="let team of playingTeams" [value]="team">{{
-            team
-          }}</mat-option>
-        </mat-select>
-        <mat-error *ngIf="gameForm.get('possessionTeam')?.invalid">{{
-          getScoreError("possessionTeam")
-        }}</mat-error>
-      </mat-form-field>
+      <div class="model-input">
+        <p>Possession Team</p>
+        <mat-form-field>
+          <mat-select
+            formControlName="possessionTeam"
+            [(value)]="currentPossessionTeam"
+            required
+          >
+            <mat-option *ngFor="let team of playingTeams" [value]="team">{{
+              team
+            }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="gameForm.get('possessionTeam')?.invalid">{{
+            getScoreError("possessionTeam")
+          }}</mat-error>
+        </mat-form-field>
+      </div>
     </div>
 
     <div class="button-row">
