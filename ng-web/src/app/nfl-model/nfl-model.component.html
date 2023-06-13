@@ -1,15 +1,11 @@
 <div class="page">
+  <div>
+    <h2 class="header">NFL Game Winner Prediction Model</h2>
+  </div>
   <form [formGroup]="gameForm">
-    <div class="flex-container">
-      <div id="away-team-label">
-        <label>Away Team</label>
-      </div>
-      <div id="home-team-label">
-        <label>Home Team</label>
-      </div>
-    </div>
-    <div class="flex-container">
-      <div id="away-team-select">
+    <div class="input-row" id="input-teams">
+      <div class="model-input">
+        <p>Away Team</p>
         <mat-form-field>
           <mat-select formControlName="awayTeam" [(value)]="selectedAwayTeam">
             <mat-option *ngFor="let team of nflTeams" [value]="team">{{
@@ -18,7 +14,8 @@
           </mat-select>
         </mat-form-field>
       </div>
-      <div id="home-team-select">
+      <div class="model-input">
+        <p>Home Team</p>
         <mat-form-field>
           <mat-select formControlName="homeTeam" [(value)]="selectedHomeTeam">
             <mat-option *ngFor="let team of nflTeams" [value]="team">{{
@@ -79,7 +76,7 @@
       </div>
     </div>
 
-    <div class="button-row">
+    <div>
       <button
         mat-raised-button
         class="predict-button"
