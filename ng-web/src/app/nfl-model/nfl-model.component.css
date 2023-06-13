@@ -1,20 +1,8 @@
-.input-form mat-form-field + mat-form-field {
-  margin-left: 8px;
-  margin-top: 10px;
-}
-
-.flex-container {
-  display: flex;
-}
-
-.button-row {
-  display: table-cell;
-  max-width: 600px;
-}
-
 .mat-mdc-raised-button.predict-button {
   background-color: #5ba199;
   color: white;
+  margin: auto;
+  display: flex;
 }
 
 .mat-mdc-raised-button.predict-button:disabled {
@@ -22,36 +10,21 @@
   color: #e5e3e4;
 }
 
+.header {
+  text-align: center;
+}
+.input-row {
+  margin: auto;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
 .model-input {
   padding-bottom: 5px;
+  display: inline-block;
 }
 
-#away-team-label {
-  flex: 1;
-  margin-right: 20px;
-  margin-top: 20px;
-  margin-bottom: 5px;
-  display: flex;
-  justify-content: right;
-}
-
-#home-team-label {
-  flex: 1;
-  margin-left: 20px;
-  margin-top: 20px;
-  margin-bottom: 5px;
-  display: flex;
-}
-
-#away-team-select {
-  flex: 1;
-  margin-right: 20px;
-  display: flex;
-  justify-content: right;
-}
-
-#home-team-select {
-  flex: 1;
-  margin-left: 20px;
-  display: flex;
+#input-teams {
+  margin-top: 10px;
+  width: 34%;
 }

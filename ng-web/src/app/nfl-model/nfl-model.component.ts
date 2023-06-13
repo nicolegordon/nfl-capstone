@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  Form,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
@@ -11,6 +10,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { NgIf, NgFor } from '@angular/common';
+import { ModelService } from '../model/model.service';
+import { NflGame, WinnerPrediction } from '../model/types';
 
 @Component({
   selector: 'nfl-model',
@@ -28,6 +29,9 @@ import { NgIf, NgFor } from '@angular/common';
   ],
 })
 export class NflModelComponent implements OnInit {
+  gameInfo!: NflGame;
+  predictionProb!: number;
+
   // List of all NFL teams
   public nflTeams: string[] = [
     'ARI',
@@ -64,27 +68,29 @@ export class NflModelComponent implements OnInit {
     'WAS',
   ];
 
-  // Form controls
-  homeTeamForm = new FormControl(null, [Validators.required]);
-  awayTeamForm = new FormControl(null, [Validators.required]);
-  homeScoreForm = new FormControl(null, [
-    Validators.required,
-    Validators.min(0),
-    Validators.pattern('([0-9]+)'),
-  ]);
-  awayScoreForm = new FormControl(null, [
-    Validators.required,
-    Validators.min(0),
-    Validators.pattern('([0-9]+)'),
-  ]);
-  possessionTeamForm = new FormControl(null, [Validators.required]);
+  // Form group
+  gameForm = new FormGroup({
+    homeTeam: new FormControl('', [Validators.required]),
+    awayTeam: new FormControl('', [Validators.required]),
+    homeScore: new FormControl('', [
+      Validators.required,
+      Validators.min(0),
+      Validators.pattern('([0-9]+)'),
+    ]),
+    awayScore: new FormControl('', [
+      Validators.required,
+      Validators.min(0),
+      Validators.pattern('([0-9]+)'),
+    ]),
+    possessionTeam: new FormControl('', [Validators.required]),
+  });
 
   // Current selected variables
   selectedHomeTeam: string | null = 'Home Team';
   selectedAwayTeam: string | null = 'Away Team';
-  currentHomeScore: number | null = null;
-  currentAwayScore: number | null = null;
-  currentPossessionTeam: string | null = null;
+  currentHomeScore: string | null = '';
+  currentAwayScore: string | null = '';
+  currentPossessionTeam: string | null = '';
 
   // Two teams selected as home and away
   playingTeams: (string | null)[] = [
@@ -95,65 +101,56 @@ export class NflModelComponent implements OnInit {
   // If the Predict button is disabled
   isDisabled: boolean = true;
 
-  constructor() {}
+  constructor(private modelSvc: ModelService) {}
   ngOnInit() {
     // Subscriptions to all form controls
-    this.homeTeamForm.valueChanges.subscribe((team) => {
+    this.gameForm.get('homeTeam')?.valueChanges.subscribe((team) => {
       this.selectedHomeTeam = team;
       this.playingTeams = [this.selectedAwayTeam, this.selectedHomeTeam].sort();
-      this.isInvalid();
     });
 
-    this.awayTeamForm.valueChanges.subscribe((team) => {
+    this.gameForm.get('awayTeam')?.valueChanges.subscribe((team) => {
       this.selectedAwayTeam = team;
       this.playingTeams = [this.selectedAwayTeam, this.selectedHomeTeam].sort();
-      this.isInvalid();
     });
 
-    this.homeScoreForm.valueChanges.subscribe((score) => {
+    this.gameForm.get('homeScore')?.valueChanges.subscribe((score) => {
       this.currentHomeScore = score;
-      this.isInvalid();
     });
 
-    this.awayScoreForm.valueChanges.subscribe((score) => {
+    this.gameForm.get('awayScore')?.valueChanges.subscribe((score) => {
       this.currentAwayScore = score;
-      this.isInvalid();
     });
 
-    this.possessionTeamForm?.valueChanges.subscribe((team) => {
+    this.gameForm.get('possessionTeam')?.valueChanges.subscribe((team) => {
       this.currentPossessionTeam = team;
-      this.isInvalid();
     });
   }
 
   // Function executes when predict button is clicked
   onPredictClick(): void {
-    console.log(this.possessionTeamForm.value);
+    console.log(this.gameForm.get('possessionTeam')?.value);
+    this.gameInfo = this.gameForm.value;
+    this.modelSvc
+      .predictNflWinner(this.gameInfo)
+      .subscribe((response: WinnerPrediction) => {
+        console.log(response);
+        this.predictionProb = response.value;
+      });
   }
 
   // Function to get errors
-  getScoreError(form: FormControl): string {
-    if (form.hasError('required')) {
+  getScoreError(formField: string): string {
+    if (this.gameForm.get(formField)?.hasError('required')) {
       return 'Field is required';
     }
 
-    if (form.hasError('min')) {
+    if (this.gameForm.get(formField)?.hasError('min')) {
       return 'Score must be greater than or equal to 0';
     }
 
-    return form.hasError('pattern') ? 'Score must be an integer' : '';
-  }
-
-  // Function to check if form controls are invalid
-  isInvalid(): void {
-    if (
-      this.awayScoreForm.invalid ||
-      this.homeScoreForm.invalid ||
-      this.possessionTeamForm.invalid
-    ) {
-      this.isDisabled = true;
-    } else {
-      this.isDisabled = false;
-    }
+    return this.gameForm.get(formField)?.hasError('pattern')
+      ? 'Score must be an integer'
+      : '';
   }
 }

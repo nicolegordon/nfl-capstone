@@ -1,18 +1,18 @@
 <mat-toolbar class="nav-bar">
   <div>
-    <a class="name" [routerLink]="'../homepage'">Nicole Gordon</a>
+    <a class="name" [routerLink]="'../resume'">Nicole Gordon</a>
   </div>
   <span class="flexExpand"></span>
   <div>
-    <button mat-icon-button style="float: right;" [matMenuTriggerFor]="menu">
+    <button mat-icon-button style="float: right" [matMenuTriggerFor]="menu">
       <mat-icon>menu</mat-icon>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item [routerLink]="'../homepage'">Home</button>
         <button mat-menu-item [routerLink]="'../resume'">Resume</button>
         <button mat-menu-item [routerLink]="'../projects'">Projects</button>
-        <button mat-menu-item [routerLink]="'../nflModel'">NFL Game Prediction Model</button>
+        <button mat-menu-item [routerLink]="'../nflModel'">
+          NFL Game Prediction Model
+        </button>
       </mat-menu>
     </button>
-</div>
+  </div>
 </mat-toolbar>
-  
