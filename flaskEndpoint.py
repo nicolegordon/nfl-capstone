@@ -15,7 +15,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 import joblib
 # declare constants
-HOST = '192.168.0.45'
+HOST = '0.0.0.0'
 PORT = 4200
 # initialize flask application
 app = Flask(__name__)
