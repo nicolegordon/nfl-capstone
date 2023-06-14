@@ -1,0 +1,114 @@
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with watchdog (fsevents)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 814-547-868
+DEBUG:fsevents:NativeEvent(path="/Users/nicolegordon/Documents/DS/Capstone/record.log", inode=48278437, flags=18000, id=783323366): is_file, is_xattr_mod
+DEBUG:fsevents:queue_event <FileModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone/record.log', is_directory=False>
+DEBUG:fsevents:NativeEvent(path="/Users/nicolegordon/Documents/DS/Capstone/record.log", inode=48278437, flags=18000, id=783323710): is_file, is_xattr_mod
+DEBUG:fsevents:queue_event <FileModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone/record.log', is_directory=False>
+DEBUG:flaskEndpoint:debug log info
+INFO:flaskEndpoint:Info log information
+WARNING:flaskEndpoint:Warning log info
+ERROR:flaskEndpoint:Error log info
+CRITICAL:flaskEndpoint:Critical log info
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2023 19:50:07] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2023 19:50:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+DEBUG:fsevents:NativeEvent(path="/Users/nicolegordon/Documents/DS/Capstone/tmpjvjhmtgn", inode=48278682, flags=10500, id=783325771): is_created, is_file, is_inode_meta_mod
+DEBUG:fsevents:queue_event <FileCreatedEvent: event_type=created, src_path='/Users/nicolegordon/Documents/DS/Capstone/tmpjvjhmtgn', is_directory=False>
+DEBUG:fsevents:queue_event <DirModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone', is_directory=True>
+DEBUG:fsevents:queue_event <FileModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone/tmpjvjhmtgn', is_directory=False>
+DEBUG:fsevents:NativeEvent(path="/Users/nicolegordon/Documents/DS/Capstone/tmpjvjhmtgn", inode=48278682, flags=11d00, id=783325777): is_coalesced, is_created, is_file, is_inode_meta_mod, is_modified, is_renamed
+DEBUG:fsevents:NativeEvent(path="/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py", inode=48278682, flags=10800, id=783325778): is_file, is_renamed
+DEBUG:fsevents:NativeEvent(path="/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py", inode=48278426, flags=10800, id=783325779): is_file, is_renamed
+DEBUG:fsevents:queue_event <FileModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone/tmpjvjhmtgn', is_directory=False>
+DEBUG:fsevents:Destination event for rename is NativeEvent(path="/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py", inode=48278682, flags=10800, id=783325778)
+DEBUG:fsevents:queue_event <FileMovedEvent: src_path='/Users/nicolegordon/Documents/DS/Capstone/tmpjvjhmtgn', dest_path='/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', is_directory=False>
+DEBUG:fsevents:queue_event <DirModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone', is_directory=True>
+DEBUG:fsevents:queue_event <DirModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone', is_directory=True>
+INFO:werkzeug: * Detected change in '/Users/nicolegordon/Documents/DS/Capstone/tmpjvjhmtgn', reloading
+DEBUG:fsevents:queue_event <FileDeletedEvent: event_type=deleted, src_path='/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', is_directory=False>
+DEBUG:fsevents:queue_event <DirModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone', is_directory=True>
+INFO:werkzeug: * Detected change in '/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', reloading
+DEBUG:fsevents:NativeEvent(path="/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py", inode=48278682, flags=14c00, id=783325785): is_file, is_inode_meta_mod, is_owner_change, is_renamed
+DEBUG:fsevents:queue_event <FileModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', is_directory=False>
+DEBUG:fsevents:queue_event <FileCreatedEvent: event_type=created, src_path='/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', is_directory=False>
+INFO:werkzeug: * Detected change in '/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', reloading
+DEBUG:fsevents:queue_event <DirModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone', is_directory=True>
+INFO:werkzeug: * Detected change in '/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', reloading
+INFO:werkzeug: * Restarting with watchdog (fsevents)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 814-547-868
+DEBUG:fsevents:NativeEvent(path="/Users/nicolegordon/Documents/DS/Capstone/tmphh6bfwxb", inode=48278693, flags=10500, id=783325904): is_created, is_file, is_inode_meta_mod
+DEBUG:fsevents:queue_event <FileCreatedEvent: event_type=created, src_path='/Users/nicolegordon/Documents/DS/Capstone/tmphh6bfwxb', is_directory=False>
+DEBUG:fsevents:queue_event <DirModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone', is_directory=True>
+DEBUG:fsevents:queue_event <FileModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone/tmphh6bfwxb', is_directory=False>
+DEBUG:fsevents:NativeEvent(path="/Users/nicolegordon/Documents/DS/Capstone/tmphh6bfwxb", inode=48278693, flags=11d00, id=783325910): is_coalesced, is_created, is_file, is_inode_meta_mod, is_modified, is_renamed
+DEBUG:fsevents:NativeEvent(path="/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py", inode=48278693, flags=10800, id=783325911): is_file, is_renamed
+DEBUG:fsevents:NativeEvent(path="/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py", inode=48278682, flags=14c00, id=783325912): is_file, is_inode_meta_mod, is_owner_change, is_renamed
+DEBUG:fsevents:queue_event <FileModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone/tmphh6bfwxb', is_directory=False>
+DEBUG:fsevents:Destination event for rename is NativeEvent(path="/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py", inode=48278693, flags=10800, id=783325911)
+DEBUG:fsevents:queue_event <FileMovedEvent: src_path='/Users/nicolegordon/Documents/DS/Capstone/tmphh6bfwxb', dest_path='/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', is_directory=False>
+DEBUG:fsevents:queue_event <DirModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone', is_directory=True>
+INFO:werkzeug: * Detected change in '/Users/nicolegordon/Documents/DS/Capstone/tmphh6bfwxb', reloading
+DEBUG:fsevents:queue_event <DirModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone', is_directory=True>
+DEBUG:fsevents:queue_event <FileModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', is_directory=False>
+DEBUG:fsevents:queue_event <FileDeletedEvent: event_type=deleted, src_path='/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', is_directory=False>
+INFO:werkzeug: * Detected change in '/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', reloading
+DEBUG:fsevents:queue_event <DirModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone', is_directory=True>
+INFO:werkzeug: * Detected change in '/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', reloading
+DEBUG:fsevents:NativeEvent(path="/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py", inode=48278693, flags=14c00, id=783325918): is_file, is_inode_meta_mod, is_owner_change, is_renamed
+DEBUG:fsevents:queue_event <FileModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', is_directory=False>
+DEBUG:fsevents:queue_event <FileCreatedEvent: event_type=created, src_path='/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', is_directory=False>
+INFO:werkzeug: * Detected change in '/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', reloading
+DEBUG:fsevents:queue_event <DirModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone', is_directory=True>
+INFO:werkzeug: * Detected change in '/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', reloading
+INFO:werkzeug: * Restarting with watchdog (fsevents)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 814-547-868
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.0.13:8081/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with watchdog (fsevents)
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.0.13:8081/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with watchdog (fsevents)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 814-547-868
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.0.13:8081/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with watchdog (fsevents)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 814-547-868
+DEBUG:fsevents:NativeEvent(path="/Users/nicolegordon/Documents/DS/Capstone/tmpunnqkxio", inode=48278741, flags=10500, id=783326505): is_created, is_file, is_inode_meta_mod
+DEBUG:fsevents:queue_event <FileCreatedEvent: event_type=created, src_path='/Users/nicolegordon/Documents/DS/Capstone/tmpunnqkxio', is_directory=False>
+DEBUG:fsevents:queue_event <DirModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone', is_directory=True>
+DEBUG:fsevents:queue_event <FileModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone/tmpunnqkxio', is_directory=False>
+DEBUG:fsevents:NativeEvent(path="/Users/nicolegordon/Documents/DS/Capstone/tmpunnqkxio", inode=48278741, flags=11d00, id=783326511): is_coalesced, is_created, is_file, is_inode_meta_mod, is_modified, is_renamed
+DEBUG:fsevents:NativeEvent(path="/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py", inode=48278741, flags=10800, id=783326512): is_file, is_renamed
+DEBUG:fsevents:NativeEvent(path="/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py", inode=48278733, flags=10800, id=783326513): is_file, is_renamed
+DEBUG:fsevents:queue_event <FileModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone/tmpunnqkxio', is_directory=False>
+DEBUG:fsevents:Destination event for rename is NativeEvent(path="/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py", inode=48278741, flags=10800, id=783326512)
+DEBUG:fsevents:queue_event <FileMovedEvent: src_path='/Users/nicolegordon/Documents/DS/Capstone/tmpunnqkxio', dest_path='/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', is_directory=False>
+DEBUG:fsevents:queue_event <DirModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone', is_directory=True>
+DEBUG:fsevents:queue_event <DirModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone', is_directory=True>
+INFO:werkzeug: * Detected change in '/Users/nicolegordon/Documents/DS/Capstone/tmpunnqkxio', reloading
+DEBUG:fsevents:queue_event <FileDeletedEvent: event_type=deleted, src_path='/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', is_directory=False>
+DEBUG:fsevents:queue_event <DirModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone', is_directory=True>
+INFO:werkzeug: * Detected change in '/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', reloading
+DEBUG:fsevents:NativeEvent(path="/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py", inode=48278741, flags=14c00, id=783326519): is_file, is_inode_meta_mod, is_owner_change, is_renamed
+DEBUG:fsevents:queue_event <FileModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', is_directory=False>
+DEBUG:fsevents:queue_event <FileCreatedEvent: event_type=created, src_path='/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', is_directory=False>
+DEBUG:fsevents:queue_event <DirModifiedEvent: event_type=modified, src_path='/Users/nicolegordon/Documents/DS/Capstone', is_directory=True>
+INFO:werkzeug: * Detected change in '/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', reloading
+INFO:werkzeug: * Detected change in '/Users/nicolegordon/Documents/DS/Capstone/flaskEndpoint.py', reloading
+INFO:werkzeug: * Restarting with watchdog (fsevents)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 814-547-868
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.0.13:8081/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with watchdog (fsevents)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 814-547-868
