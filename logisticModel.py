@@ -17,6 +17,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import cross_val_score
+import pickle
 
 # Read in the cleaned data
 wdir = r'/Users/nicolegordon/Documents/DS/Capstone'
@@ -59,3 +60,5 @@ log_reg.fit(X_train_transformed, y_train)
 print('Training Accuracy: ', log_reg.score(X_train, y_train))
 print('cross val score', cross_val_score(log_reg, X_train, y_train, 
                                          cv=10, scoring='accuracy'))
+model_file = os.path.join(wdir, 'model.pkl')
+pickle.dump(log_reg, open(model_file, 'wb'))
