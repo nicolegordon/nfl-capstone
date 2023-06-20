@@ -10,7 +10,7 @@ export class ModelService {
   constructor(private http: HttpClient) {}
 
   public predictNflWinner(game: NflGame): Observable<WinnerPrediction> {
-    const url: string = `api/predict`;
+    const url: string = `http://127.0.0.1:4500/api/predict`;
     return this.http.post<WinnerPrediction>(url, game);
   }
 }

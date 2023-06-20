@@ -7,16 +7,16 @@ Created on Tue May 30 22:23:46 2023
 """
 
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 import os 
 import joblib
-import logging
 
-# logging.basicConfig(filename='record.log', level=logging.DEBUG)
 # declare constants
 HOST = '0.0.0.0'
-PORT = 8081
+PORT = 4500
 # initialize flask application
 app = Flask(__name__)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.route('/api/predict', methods=['POST'])
 def predict():
@@ -28,12 +28,14 @@ def predict():
     model_file = os.path.join(wdir, 'model.pkl')
     log_reg = joblib.load(model_file)
     probabilities = log_reg.predict_proba(X)
+    # probabilities = [0]
 
     return jsonify([{'name': 'Win', 
-                      'value': round(probabilities[0, 0] * 100, 2)}])
+                      'value': round(probabilities[0] * 100, 2)}])
+
 
 if __name__ == '__main__':
     # run web server
     app.run(host=HOST,
-            debug=True,  # automatic reloading enabled
+            debug=True,
             port=PORT)
