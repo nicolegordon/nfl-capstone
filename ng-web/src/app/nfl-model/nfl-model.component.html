@@ -76,6 +76,32 @@
       </div>
     </div>
 
+    <div class="input-row" id="input-teams">
+      <div class="model-input">
+        <p>Quarter</p>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="quarter"
+            value="currentQuarter"
+            required
+          />
+          <mat-error *ngIf="gameForm.get('quarter')?.invalid">{{
+            getQuarterError()
+          }}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="model-input">
+        <p>Week</p>
+        <mat-form-field>
+          <input matInput formControlName="week" value="currentWeek" required />
+          <mat-error *ngIf="gameForm.get('week')?.invalid">{{
+            getWeekError()
+          }}</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
     <div>
       <button
         mat-raised-button

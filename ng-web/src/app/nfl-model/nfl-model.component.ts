@@ -83,6 +83,18 @@ export class NflModelComponent implements OnInit {
       Validators.pattern('([0-9]+)'),
     ]),
     possessionTeam: new FormControl('', [Validators.required]),
+    quarter: new FormControl('', [
+      Validators.min(1),
+      Validators.max(5),
+      Validators.pattern('([0-9]+)'),
+      Validators.required,
+    ]),
+    week: new FormControl('', [
+      Validators.min(1),
+      Validators.max(17),
+      Validators.pattern('([0-9]+)'),
+      Validators.required,
+    ]),
   });
 
   // Current selected variables
@@ -91,6 +103,8 @@ export class NflModelComponent implements OnInit {
   currentHomeScore: string | null = '';
   currentAwayScore: string | null = '';
   currentPossessionTeam: string | null = '';
+  currentQuarter: string | null = '';
+  currentWeek: string | null = '';
 
   // Two teams selected as home and away
   playingTeams: (string | null)[] = [
@@ -125,21 +139,30 @@ export class NflModelComponent implements OnInit {
     this.gameForm.get('possessionTeam')?.valueChanges.subscribe((team) => {
       this.currentPossessionTeam = team;
     });
+
+    this.gameForm.get('quarter')?.valueChanges.subscribe((quarter) => {
+      this.currentQuarter = quarter;
+    });
+
+    this.gameForm.get('week')?.valueChanges.subscribe((week) => {
+      this.currentWeek = week;
+    });
   }
 
   // Function executes when predict button is clicked
   onPredictClick(): void {
-    console.log(this.gameForm.get('possessionTeam')?.value);
     this.gameInfo = this.gameForm.value;
     this.modelSvc
       .predictNflWinner(this.gameInfo)
       .subscribe((response: WinnerPrediction) => {
-        console.log(response);
+        console.log(
+          `${response.name} has a ${response.value}% chance of winning`
+        );
         this.predictionProb = response.value;
       });
   }
 
-  // Function to get errors
+  // Function to get score errors
   getScoreError(formField: string): string {
     if (this.gameForm.get(formField)?.hasError('required')) {
       return 'Field is required';
@@ -151,6 +174,42 @@ export class NflModelComponent implements OnInit {
 
     return this.gameForm.get(formField)?.hasError('pattern')
       ? 'Score must be an integer'
+      : '';
+  }
+
+  // Function to get quarter errors
+  getQuarterError(): string {
+    if (this.gameForm.get('quarter')?.hasError('required')) {
+      return 'Field is required';
+    }
+
+    if (
+      this.gameForm.get('quarter')?.hasError('min') ||
+      this.gameForm.get('quarter')?.hasError('max')
+    ) {
+      return 'Valid range: 1-5';
+    }
+
+    return this.gameForm.get('quarter')?.hasError('pattern')
+      ? 'Quarter must be an integer'
+      : '';
+  }
+
+  // Function to get week errors
+  getWeekError(): string {
+    if (this.gameForm.get('week')?.hasError('required')) {
+      return 'Field is required';
+    }
+
+    if (
+      this.gameForm.get('week')?.hasError('min') ||
+      this.gameForm.get('week')?.hasError('max')
+    ) {
+      return 'Valid range: 1-17';
+    }
+
+    return this.gameForm.get('week')?.hasError('pattern')
+      ? 'Week must be an integer'
       : '';
   }
 }
