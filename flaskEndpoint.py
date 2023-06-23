@@ -7,33 +7,44 @@ Created on Tue May 30 22:23:46 2023
 """
 
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 import os 
 import joblib
-import logging
+import pandas as pd
 
-# logging.basicConfig(filename='record.log', level=logging.DEBUG)
 # declare constants
 HOST = '0.0.0.0'
-PORT = 8081
+PORT = 4500
 # initialize flask application
 app = Flask(__name__)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.route('/api/predict', methods=['POST'])
 def predict():
     # get input object from request
-    X = request.get_json()
+    request_data = pd.DataFrame(request.get_json(), index=[0])
+    score_differential = int(request_data.homeScore) - int(request_data.awayScore)
+    home_possesion = (request_data.possessionTeam == request_data.homeTeam)
+    X = pd.DataFrame({'qtr': int(request_data.quarter),
+                      'cur_home_score': int(request_data.homeScore),
+                      'cur_away_score': int(request_data.awayScore),
+                      'score_differential': score_differential,
+                      'week': int(request_data.week),
+                      'home_possession': int(home_possesion),
+                     },
+                     index=[0])
 
     # read model
-    wdir = r'/Users/nicolegordon/Documents/DS/Capstone'
-    model_file = os.path.join(wdir, 'model.pkl')
-    log_reg = joblib.load(model_file)
-    probabilities = log_reg.predict_proba(X)
+    model_file = os.path.join('models', 'knn_model.pkl')
+    model = joblib.load(model_file)
+    probabilities = model.predict_proba(X)[0]
 
-    return jsonify([{'name': 'Win', 
-                      'value': round(probabilities[0, 0] * 100, 2)}])
+    return jsonify({'name': request_data.homeTeam.values[0], 
+                      'value': round(probabilities[1] * 100, 2)})
+
 
 if __name__ == '__main__':
     # run web server
     app.run(host=HOST,
-            debug=True,  # automatic reloading enabled
+            debug=True,
             port=PORT)

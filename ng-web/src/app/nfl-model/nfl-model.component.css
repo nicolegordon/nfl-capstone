@@ -28,3 +28,10 @@
   margin-top: 10px;
   width: 34%;
 }
+
+#prediction {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 18pt;
+  font-weight: bold;
+}
