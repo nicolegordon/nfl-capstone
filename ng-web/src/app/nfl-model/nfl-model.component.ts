@@ -112,6 +112,9 @@ export class NflModelComponent implements OnInit {
     this.selectedHomeTeam,
   ].sort();
 
+  // Winner prediction
+  prediction: string = '';
+
   // If the Predict button is disabled
   isDisabled: boolean = true;
 
@@ -155,10 +158,8 @@ export class NflModelComponent implements OnInit {
     this.modelSvc
       .predictNflWinner(this.gameInfo)
       .subscribe((response: WinnerPrediction) => {
-        console.log(
-          `${response.name} has a ${response.value}% chance of winning`
-        );
         this.predictionProb = response.value;
+        this.prediction = `${response.name} has a ${this.predictionProb}% chance of winning`;
       });
   }
 
