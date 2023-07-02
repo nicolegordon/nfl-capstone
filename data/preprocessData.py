@@ -14,7 +14,8 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 
 # Read in the cleaned data
-data_file = os.path.abspath(os.path.join(os.path.dirname( __file__ ), 'cleanData.csv'))
+data_file = os.path.abspath(os.path.join(os.path.dirname( __file__ ), 
+                                         'cleanData.csv'))
 data = pd.read_csv(data_file)
 data = data.drop(columns=['game_id', 'final_home_score', 'final_away_score'])
 
@@ -32,7 +33,7 @@ data = data.drop(columns=['Half1', 'Half2', 'game_seconds_remaining',
                           'drive'])
 corrMat(data)
 # Drop predictors that have extremely low correlation with the target 
-# variable (<0.05)
+# variable (<0.005)
 win_corr = data.corr()['home_won'].sort_values(ascending=False)
 win_corr_drop = win_corr[(win_corr.abs() < 0.005)]
 data = data.drop(columns=win_corr_drop.index.to_list())
@@ -45,6 +46,7 @@ X = data.drop(columns=['home_won'])
 y = data.home_won.copy()
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
+# Write data to csv files
 X_train.to_csv('X_train.csv', index=True)
 X_test.to_csv('X_test.csv', index=True)
 y_train.to_csv('y_train.csv', index=True)
