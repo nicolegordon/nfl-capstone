@@ -12,6 +12,7 @@ import numpy as np
 # Download data from Github
 years = np.arange(2009, 2020)
 
+# Columns to keep
 pbpCols = ['play_id', 'game_id', 'home_team', 'away_team', 'posteam', 
         'posteam_type', 'defteam', 'side_of_field', 'yardline_100', 
         'game_date', 'quarter_seconds_remaining', 'half_seconds_remaining', 
@@ -21,9 +22,11 @@ pbpCols = ['play_id', 'game_id', 'home_team', 'away_team', 'posteam',
 gamesCols = ['game_id',	'home_team', 'away_team', 'week', 
               'season',	'home_score', 'away_score']
 
+# Initialize the data frames for play-by-play and game data
 pbpData = pd.DataFrame(columns=pbpCols)
 gamesData = pd.DataFrame(columns=gamesCols)
 
+# Loop through years and read in data
 for year in years:
     regSeasonPbpUrl = ('https://github.com/ryurko/nflscrapR-data'
                         + '/raw/master/play_by_play_data/regular_season'

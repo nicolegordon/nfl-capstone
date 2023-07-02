@@ -23,22 +23,29 @@ cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 def predict():
     # get input object from request
     request_data = pd.DataFrame(request.get_json(), index=[0])
+    # calculate score differential
     score_differential = int(request_data.homeScore) - int(request_data.awayScore)
-    home_possesion = (request_data.possessionTeam == request_data.homeTeam)
+    # check if home has possession
+    is_home_possesion = (request_data.possessionTeam == request_data.homeTeam)
+    # put data into data frame to match model
     X = pd.DataFrame({'qtr': int(request_data.quarter),
                       'cur_home_score': int(request_data.homeScore),
                       'cur_away_score': int(request_data.awayScore),
                       'score_differential': score_differential,
                       'week': int(request_data.week),
-                      'home_possession': int(home_possesion),
+                      'home_possession': int(is_home_possesion),
                      },
                      index=[0])
 
-    # read model
-    model_file = os.path.join('models', 'knn_model.pkl')
+    # read in model
+    model_file = os.path.abspath(os.path.join(os.path.dirname( __file__ ), 
+                                              'models', 'rf_model.pkl'))
     model = joblib.load(model_file)
+    
+    # predict win probability
     probabilities = model.predict_proba(X)[0]
-
+    
+    # return win probability to frontend
     return jsonify({'name': request_data.homeTeam.values[0], 
                       'value': round(probabilities[1] * 100, 2)})
 
